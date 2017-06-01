@@ -1,22 +1,52 @@
 package com.hb.struts2.model;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.Reader;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import com.ibatis.common.resources.Resources;
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class SimpleDao {
    
-   public List<SimpleVo> selectAll() {
-      List<SimpleVo> list = new ArrayList<>();
-      System.out.println("daoΩ√¿€");
-      list.add(new SimpleVo(1111,"test1",
-            new Date(System.currentTimeMillis()),4321));
-      list.add(new SimpleVo(2222,"test2",
-            new Date(System.currentTimeMillis()),4321));
-      list.add(new SimpleVo(3333,"test3",
-            new Date(System.currentTimeMillis()),4321));
-      System.out.println("dao≥°");
-      return list;
+   private static SqlMapClient smc;
+
+
+   public SimpleDao() {
+      String path="./SqlMapConfig.xml";
+      try {
+         Reader reader=Resources.getResourceAsReader(path);
+         smc=SqlMapClientBuilder.buildSqlMapClient(reader);
+         
+         
+         
+         
+         
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+      
+   }
+   
+   
+   public List<SimpleVo> selectAll() throws SQLException {
+      return smc.queryForList("selectAll");
+   }
+
+
+   public SimpleVo selectOne(int sabun) throws SQLException {
+      
+      
+      return (SimpleVo) smc.queryForObject("selectOne", sabun);
+   }
+
+
+   public int updateOne(SimpleVo bean) throws SQLException {
+      return smc.update("updateOne", bean);
    }
 
    

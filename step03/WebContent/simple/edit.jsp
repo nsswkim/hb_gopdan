@@ -18,29 +18,35 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
   </head>
   <body>
-    <div class="jumbotron">
-    <h1>수정 페이지</h1>    
-    <p>...</p>    
+  <div class="jumbotron">
+    <h1>수정페이지</h1>
+     <p>...</p>
   </div>
- 
- <form action="update.action">
-  <div class="form-group">
-    <label for="sabun">사번</label>
-    <input type="text" name="sabun" class="form-control" id="sabun" placeholder="Example input">
-  </div>  
-    <div class="form-group">
-    <label for="name">이름</label>
-    <input type="text" name="name" class="form-control" id="name" placeholder="Example input">
-  </div>  
-    <div class="form-group">
-    <label for="pay">금액</label>
-    <input type="text" name="pay" class="form-control" id="pay" placeholder="Example input">
-  </div>  
-  <button type="submit" class="btn btn-default">submit</button>
-
+   
+   <form action="update.action">
+   
+      <div class="form-group">
+         <label for="sabun">사번</label>
+          <input   type="text" name="sabun" value="${bean.sabun }" class="form-control" id="sabun"
+            placeholder="Example input" readonly="readonly">
+      </div>
+      <div class="form-group">
+         <label for="name">이름</label>
+          <input   type="text" name="name" value="${bean.name }" class="form-control" id="name"
+            placeholder="Another input">
+      </div>
+      <div class="form-group">
+         <label for="pay">금액</label>
+          <input   type="text" name="pay" value="${bean.pay }" class="form-control" id="pay"
+            placeholder="Example input">
+      </div>
+      <button type="submit" class="btn btn-default">submit</button>
+   </form>
+   
+   
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

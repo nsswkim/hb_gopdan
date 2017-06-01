@@ -34,11 +34,11 @@
          <version>4.12</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/log4j/log4j -->
- 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
+      <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <version>1.2.17</version>
+      </dependency>
       <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
       <dependency>
          <groupId>javax.servlet</groupId>
@@ -57,11 +57,12 @@
          <artifactId>struts2-core</artifactId>
          <version>2.3.32</version>
       </dependency>
-    	 <!-- https://mvnrepository.com/artifact/com.github.linpn/ibatis -->
-		<dependency>
-		    <groupId>com.github.linpn</groupId>
-		    <artifactId>ibatis</artifactId>
-		    <version>2.3.8</version>
-		</dependency>
-  	 </dependencies>
+
+      <!-- https://mvnrepository.com/artifact/com.github.linpn/ibatis -->
+      <dependency>
+         <groupId>com.github.linpn</groupId>
+         <artifactId>ibatis</artifactId>
+         <version>2.3.8</version>
+      </dependency>
+   </dependencies>
 </project>
