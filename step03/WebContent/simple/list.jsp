@@ -21,11 +21,13 @@
     <![endif]-->
   </head>
   <body>
+  <div class="row">  
   <div class="jumbotron">
     <h1>리스트 페이지</h1>
     <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="add.action"  role="button">입력</a></p>
+    <p><a class="btn btn-primary btn-lg" href="add.action"  role="button">입력</a></p>  
   </div>
+  <p class="bg-danger">${msg }</p>
     <table class="table">
     	<tr>
     		<td>사번</td>
@@ -42,7 +44,7 @@
     	</tr>
     </c:forEach>	
     </table>
-
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

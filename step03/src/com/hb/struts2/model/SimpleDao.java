@@ -15,39 +15,37 @@ public class SimpleDao {
    
    private static SqlMapClient smc;
 
-
    public SimpleDao() {
       String path="./SqlMapConfig.xml";
       try {
          Reader reader=Resources.getResourceAsReader(path);
          smc=SqlMapClientBuilder.buildSqlMapClient(reader);
-         
-         
-         
-         
-         
       } catch (IOException e) {
          e.printStackTrace();
-      }
-      
-   }
-   
+      }      
+   }   
    
    public List<SimpleVo> selectAll() throws SQLException {
       return smc.queryForList("selectAll");
    }
 
-
-   public SimpleVo selectOne(int sabun) throws SQLException {
-      
-      
+   public SimpleVo selectOne(int sabun) throws SQLException {          
       return (SimpleVo) smc.queryForObject("selectOne", sabun);
    }
-
 
    public int updateOne(SimpleVo bean) throws SQLException {
       return smc.update("updateOne", bean);
    }
+
+   public void insertOne(SimpleVo bean) throws SQLException {
+	smc.insert("insertOne",bean);	
+   }
+
+   public int deleteOne(int sabun) throws SQLException {
+	  
+	   return smc.delete("deleteOne",sabun);
+	   
+}
 
    
 }
