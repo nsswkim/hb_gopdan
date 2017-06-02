@@ -11,7 +11,7 @@ import com.hb.day01.model.SimpleDao;
 public class IndexController implements Controller {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		return mav;

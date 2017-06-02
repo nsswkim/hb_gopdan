@@ -11,7 +11,7 @@ import com.hb.day01.model.SimpleDao;
 public class ListController implements Controller {
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		SimpleDao dao = new SimpleDao();
 		mav.addObject("alist", dao.selectAll());
