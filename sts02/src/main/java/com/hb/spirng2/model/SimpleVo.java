@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.spirng2.model;
 
 import java.util.Date;
 

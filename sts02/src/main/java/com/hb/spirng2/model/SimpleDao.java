@@ -1,4 +1,4 @@
-package com.hb.model;
+package com.hb.spirng2.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,17 +8,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleDao {
+import com.hb.util.MyOracle;
+
+public class SimpleDao implements DaoImpl{
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
 	public SimpleDao() {
-		try {
+	/*	try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "scott", "tiger");
 		} catch (Exception e){			
-		}		
+		}		*/
 	}
 	
 	public List<SimpleVo> selectAll() throws SQLException{
@@ -26,6 +28,7 @@ public class SimpleDao {
 		List<SimpleVo> list = null;
 		
 		try {			
+			conn=MyOracle.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			list=new ArrayList<SimpleVo>();
@@ -36,25 +39,18 @@ public class SimpleDao {
 						,rs.getDate("nalja")
 						,rs.getInt("pay")
 						));
-			}
-		} finally {
-			closeAll();
-		}		
-		return list;		
-	}
+				}
+			} finally {
+				closeAll();
+			}		
+			return list;		
+		}
 
-	private void closeAll() {
-		try {			
-			if(rs!=null)rs.close();
-			if(pstmt!=null)pstmt.close();
-			if(conn!=null)conn.close();
-		} catch (Exception e) {
-		}		
-	}
 	
 	public void insertOne(SimpleVo simpleVo) throws SQLException {
 		String sql = "INSERT INTO SIMPLE03 VALUES (?,?,SYSDATE,?)";
 		try {
+			conn=MyOracle.getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, simpleVo.getSabun());
 			pstmt.setString(2, simpleVo.getName());
@@ -65,4 +61,13 @@ public class SimpleDao {
 			closeAll();
 		}			
 	}	
+	
+	private void closeAll() {
+		try {			
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		} catch (Exception e) {
+		}		
+	}
 }

@@ -2,6 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- handler Mapping -->
+	<bean id="daoImpl" class="com.hb.spirng2.model.SimpleDao"></bean>
 	
 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -18,14 +20,19 @@
 	<bean id="index" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="main"></property>
 	</bean>	
-	<bean id="selectAll" class="com.hb.spring2.controller.ListController"></bean>
+	<bean id="selectAll" class="com.hb.spring2.controller.ListController">
+		<property name="dao" ref="daoImpl"></property>
+	</bean>
 	<bean id="addform" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
 		<property name="viewName" value="add"></property>
 	</bean>	
-	<bean id="insertOne" class="com.hb.spring2.controller.InsertController"></bean>
+	<bean id="insertOne" class="com.hb.spring2.controller.InsertController">
+		<property name="dao" ref="daoImpl"></property>
+	</bean>
 	
+	<!-- viewResolver -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/page/"></property>
+		<property name="prefix" value="/WEB-INF/page/"></property>		
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 

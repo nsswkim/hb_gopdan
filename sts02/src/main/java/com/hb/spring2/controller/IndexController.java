@@ -11,11 +11,12 @@ public class IndexController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		if("/sts02/index.do".equals(req.getRequestURI()))
+	/*	ÀÌ ¿ªÈ°À» org.springframework.web.servlet.mvc.ParameterizableViewController ¾ê°¡ ÇØÁÜ
+	  	if("/sts02/index.do".equals(req.getRequestURI()))
 			mav.setViewName("main");
 		else if ("/sts02/add.do".equals(req.getRequestURI())) {
 			mav.setViewName("add");
-		}			
+		}	*/		
 	
 		return mav;
 	}
